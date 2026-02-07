@@ -44,4 +44,4 @@ Unhandled exception: HotChocolate.SchemaException: For more details look at the 
 In short, The library does not appear to actually work correctly when supplied a schema first, as there should be no reason to call `descrptor.Key()` on a type
 that already has a `@key` directive on it in the schema document.
 
-This can be demonstrated by removing `descriptor.Key("id")` from `Study.HotChocolate/Types/MyClassExtensions` and running the project again.
+This can be demonstrated by removing `descriptor.Key("id")` from `Study.HotChocolate/Types/MyClassExtensions.cs` and running the project again.
