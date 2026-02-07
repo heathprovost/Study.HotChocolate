@@ -2,7 +2,7 @@
 
 Reproduction of issue in HotChocolate.
 
-## Issue 1 - Failure to emit _entities
+## Issue 1 - Failure to emit `_entities`
 
 In recent versions of HotChocolate, when using Apollo Federation with a Schema-First development model and ObjectTypeExtensions, The library is failing to add the `_entities` property to Query types in the schema.
 
