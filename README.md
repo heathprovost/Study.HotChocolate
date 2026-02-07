@@ -9,7 +9,7 @@ In recent versions of HotChocolate, when using Apollo Federation with a Schema-F
 In previous versions of HotChocolate (version 13.7.0 for example), the following was added to all Query types as long as there was at least one
 Entity in the schema with the `@key` directive:
 
-```csharp
+```
 _entities(representations: [_Any!]!): [_Entity]!
 ```
 
@@ -19,14 +19,22 @@ The issue can be demonstrated by running this project, as all it does is
 construct a very simple schema-first application and then exports its schema.
 The `_entities` property is not being emitted.
 
-## Issue 2 - Duplication of @key directives
+## Issue 2 - Duplication of `@key` directives
 
 Another issue (although not as critical) is that the `@key` directive is
 added to the generated schem whenever a TypeExtension calls `descriptor.Key("name")`, even when the underlying schema already declares the directive.
 
+```
+"My Class"
+type MyClass @key(fields: "id") @key(fields: "id") {
+  "Unique Identifier"
+  id: String!
+}
+```
+
 The issue here is that if you omit that call the application will throw this exception:
 
-```csharp
+```
 Unhandled exception: HotChocolate.SchemaException: For more details look at the `Errors` property.
 
 1. Unable to find type(s) @key (HotChocolate.Types.ObjectType)
