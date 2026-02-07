@@ -22,7 +22,7 @@ The `_entities` property is not being emitted.
 ## Issue 2 - Duplication of `@key` directives
 
 Another issue (although not as critical) is that the `@key` directive is
-added to the generated schem whenever a TypeExtension calls `descriptor.Key("name")`, even when the underlying schema already declares the directive.
+added to the generated schem whenever a TypeExtension calls `descriptor.Key("name")`, even when the underlying schema already declares the directive, which creates a duplicate directive:
 
 ```
 "My Class"
