@@ -13,7 +13,7 @@ Entity in the schema with the `@key` directive:
 _entities(representations: [_Any!]!): [_Entity]!
 ```
 
-This property is no longer being added, at least not in v14.x or v15.x of HotChocolate. This breaks functionality with Apollo Federation.
+This property is no longer being added, at least not in versions `14.x` or `15.x` of HotChocolate. This breaks functionality with Apollo Federation.
 
 The issue can be demonstrated by running this project, as all it does is
 construct a very simple schema-first application and then exports its schema.
