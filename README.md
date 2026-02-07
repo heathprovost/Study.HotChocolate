@@ -22,7 +22,7 @@ The `_entities` property is not being emitted.
 ## Issue 2 - Duplication of `@key` directives
 
 Another issue (although not as critical) is that the `@key` directive is
-added to the generated schem whenever a TypeExtension calls `descriptor.Key("name")`, even when the underlying schema already declares the directive, which creates a duplicate directive:
+added to the generated schem whenever a TypeExtension calls `descriptor.Key("id")`, even when the underlying schema already declares the directive, which creates a duplicate directive:
 
 ```
 "My Class"
@@ -32,7 +32,7 @@ type MyClass @key(fields: "id") @key(fields: "id") {
 }
 ```
 
-The issue here is that if you omit that call the application will throw this exception:
+The issue here is that if you omit that call to `descriptor.Key("id")` in the Type Extension then the application will throw this exception:
 
 ```
 Unhandled exception: HotChocolate.SchemaException: For more details look at the `Errors` property.
