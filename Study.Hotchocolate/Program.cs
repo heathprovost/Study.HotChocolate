@@ -4,9 +4,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddGraphQLServer()
   .AddApolloFederation()
-  .AddDocumentFromFile("./schema.gql")
-  .BindRuntimeType<Query>()
-  .BindRuntimeType<MyClass>("MyClass")
+  .AddType<Query>()
+  .AddType<MyClass>()
   .AddTypeExtension<MyClassExtensions>()
   .InitializeOnStartup();
 
